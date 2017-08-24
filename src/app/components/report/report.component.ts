@@ -12,7 +12,9 @@ import { Alien } from '../../models/alien';
     AlienService,
     EncountersService
   ],
-  styles: []
+  styles: [`
+  fieldset { border: none; outline: none; }
+  `]
 })
 export class ReportComponent implements OnInit {
 
