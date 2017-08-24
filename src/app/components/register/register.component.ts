@@ -23,8 +23,7 @@ import {
 export class RegisterComponent implements OnInit {
 
   private nameRegex = /[0-9]/;
-
-  jobs: Job[];
+  public jobs: Job[];
 
   registerForm = new FormGroup({
     name: new FormControl('', 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EncountersService } from '../../services/encounters';
+import { Report } from '../../models/report'
 
 
 @Component({
@@ -10,14 +11,17 @@ import { EncountersService } from '../../services/encounters';
 })
 export class EncountersComponent implements OnInit {
 
+  public encounters: Report[];
+
   constructor(private encountersService: EncountersService) { }
 
   /**
    * Syntatic Sugar
    */
   async ngOnInit() {
-
+    this.encounters = await this.encountersService.getEncounters(); 
   }
+
 
   // ngOnInit() {
   //   this.encountersService.getEncounters().then((response) => {
