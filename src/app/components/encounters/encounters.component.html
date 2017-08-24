@@ -5,18 +5,16 @@
   </header>
 
   <section class="main-body">
-    <div class="content-area">
-      <ul class="encounters-list">
-        <li class="encounter" *ngFor="let encounter of encounters">
-          <div class="encounter-meta">
-            {{ encounter.date }} - {{ encounter.atype }}
-          </div>
-          <div class="encounter-action">
-            {{ encounter.action }}
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul class="encounters-list">
+      <li class="encounter" *ngFor="let encounter of encounters">
+        <div class="encounter-meta">
+          {{ encounter.date }} - {{ encounter.atype }}
+        </div>
+        <div class="encounter-action">
+          {{ encounter.action }}
+        </div>
+      </li>
+    </ul>
   </section>
 
   <footer class="main-footer">
