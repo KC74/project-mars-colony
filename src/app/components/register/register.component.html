@@ -1,0 +1,46 @@
+<div class="page">
+    <form [formGroup]="registerForm" class="mars-register-form" novalidate (ngSubmit)="registerColonist()">
+        <fieldset>
+            <input type="text" placeholder="Name" required="" class="" formControlName="name">
+            <input type="number" placeholder="Age" required="" class="" value="{{ data }}" formControlName="age">
+            <div class="custom-select">
+                <select required="" name="occupation" class="" formControlName="job_id">
+                    <option value="" class="placeholder">Select occupation</option>
+                    <option *ngFor="let job of jobs" [value]="job.id" class="">{{ job.name }}</option>
+                </select>
+            </div>
+            <div>
+                <button [disabled]="registerForm.status === 'INVALID'" type="submit" class="button">Check in</button>
+            </div>
+        </fieldset>
+    </form>
+    <pre>{{ registerForm.value | json }}</pre>
+    <pre>STATUS: {{ registerForm.status | json }}</pre>
+</div>
+
+<!-- <div class="page">
+    <div class="mars-form-register">
+        <input #item value="Default Item" type="text" placeholder="Name" required="" class="name">
+        <button type="button" (click)="addListItem(item.value)">Add Item</button>
+
+        <ul [ngClass]="{ warning: data.length > 10, ok: data.length < 10 }">
+            <li *ngFor="let encounter of data">{{ encounter.text }}
+                <button type="button" (click)="removeListItem(encounter)">X</button>
+            </li>
+        </ul>
+    </div>
+</div> -->
+
+<!-- // removeListItem(item) {
+    //   let position = this.data.indexOf(item);
+  
+    //   if (position < this.data.length && position >= 0 ) {
+    //     this.data.splice(position, 1);
+    //   } else {
+    //     console.log('NO GOOD BRUH');
+    //   }
+    // }
+  
+    // addListItem(item) {
+    //   this.data.push({ text: item });
+    // } -->

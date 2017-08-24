@@ -1,0 +1,17 @@
+<form [formGroup]="saveReport" class="mars-report-form" novalidate (ngSubmit)="postEncounter()">
+  <fieldset>
+    <div class="custom-select">
+      <select class="mars-alien-selection" formControlName="alien_id">
+        <option value="">Select alien type</option>
+        <option *ngFor="let alien of aliens" value="{{ alien.type }}" class="">{{ alien.type }}</option>
+      </select>
+    </div>
+    <textarea formControlName="action_taken" placeholder="Action taken" class="mars-report-textarea"></textarea>
+    <div>
+      <button class="button">Submit Report</button>
+    </div>
+  </fieldset>
+</form>
+
+<pre>{{ saveReport.value | json }}</pre>
+<pre>STATUS: {{ saveReport.status | json }}</pre>
