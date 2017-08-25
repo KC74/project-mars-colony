@@ -16,7 +16,7 @@ import {
  */
 export const routerTransition = trigger('routerTransition', [
   transition('* <=> *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' })
+    query(':enter, :leave', style({ position: 'fixed', width: '100%', transform: 'translateZ(0)' })
       , { optional: true }),
     group([
       query(':enter', [
@@ -38,6 +38,7 @@ export const routerTransition = trigger('routerTransition', [
   animations: [routerTransition],
 })
 export class AppComponent {
+  
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }

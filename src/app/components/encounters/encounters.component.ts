@@ -7,18 +7,16 @@ import { Report } from '../../models/report'
   selector: 'app-encounters',
   templateUrl: './encounters.component.html',
   providers:[EncountersService],
-  styles: [`
-  * { box-sizing: border-box ;}
-  .container { height: 100%; width: 100%; }
-  .encounters-title { 10vh }
-  .main-body { width: 100%; height: 60vh; overflow: scroll; }
-  `]
+  styles: [``]
 })
 export class EncountersComponent implements OnInit {
 
   public encounters: Report[];
 
-  constructor(private encountersService: EncountersService) { }
+  constructor(private encountersService: EncountersService) { 
+
+      // this.encounters = this.encounters || localStorage.getItem('encounters')
+  }
 
   /**
    * -------------------------
