@@ -1,0 +1,16 @@
+@mixin min-content-width($width) {
+            min-width: $width;
+  }
+
+@mixin mwidth-container($min-width, $isFlex: $default__flex-toggle) {
+
+    min-width: $min-width;
+    
+    @if $isFlex {
+        display: flex;
+    }
+    
+    @else {
+        display: block;
+    }     
+}
