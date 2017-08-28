@@ -1,0 +1,51 @@
+form.mars-report-form {
+    
+            fieldset {
+                @include mwidth-container(100%, true);
+                @extend .default-panel;
+                flex-flow: column nowrap;
+                justify-content: center;
+                margin: auto;
+    
+                input, select, button {
+                    margin: 1rem auto;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0.5rem;
+                }
+    
+                button {
+                    @include min-content-width($screen__size-mobile);
+                    width: 25%;
+                    height: 50px;
+                }
+    
+                .check-in-btn {
+                    padding-top: 14px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: #004e5e;
+                    opacity: 100%;
+                    animation: check-in-pulse 5s linear infinite;
+                    
+                    @keyframes check-in-pulse {
+                        0% {
+                            opacity: 30%;
+                        }
+                        50% {
+                            opacity: 100%;
+                        }
+                        100% {
+                            opacity: 30%;
+                        }
+                    }
+                }
+    
+                select {
+                    option {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
