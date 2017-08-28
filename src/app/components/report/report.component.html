@@ -1,15 +1,17 @@
-<form [formGroup]="saveReport" class="mars-report-form" novalidate (ngSubmit)="postEncounter()">
+<header class="report-title">
+  <h1>Report an Encounter</h1>
+</header>
+
+<form [formGroup]="saveReport" class="mars-report-form" novalidate>
   <fieldset>
-    <div class="custom-select">
-      <select class="mars-alien-selection" formControlName="alien_id">
+    <select class="mars-alien-selection" formControlName="alien_id">
         <option value="">Select alien type</option>
         <option *ngFor="let alien of aliens" value="{{ alien.type }}" class="">{{ alien.type }}</option>
       </select>
-    </div>
     <textarea formControlName="action_taken" placeholder="Action taken" class="mars-report-textarea"></textarea>
-    <div>
-      <button class="button"><a routerLink="/encounters">Submit Report</a></button>
-    </div>
+    <button [disabled]="saveReport.status === 'INVALID'" [ngClass]="{ toggleHide: saveReport.status === 'INVALID', toggleShow: saveReport.status !== 'INVALID' }" class="button" type="submit">
+      <a (click)="postEncounter()" routerLink="/encounters">Submit Report</a>
+    </button>
   </fieldset>
 </form>
 

@@ -7,6 +7,12 @@
     outline: none;
 }
 
+a {
+  &:visited {
+      color: #004E5E;
+  }  
+}
+
 body {
     font-family: $default__font-family;
 }

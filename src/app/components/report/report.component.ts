@@ -55,6 +55,7 @@ export class ReportComponent implements OnInit {
     console.log('Report was saved!', encounter);
   }; 
 
+
   // ngOnInit() {
   //   this.alienService.getAliens().then((response) => {
   //     console.log(response);
