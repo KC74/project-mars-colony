@@ -1,3 +1,7 @@
+/* ----------------------------------- 
+ *   MAIN STYLES
+ * -----------------------------------
+ */
 * { 
     box-sizing: border-box ;
     outline: none;
@@ -6,3 +10,52 @@
 body {
     font-family: $default__font-family;
 }
+
+.default-panel {
+    border: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    color: #004e5e;
+    background: $content__body-color;
+    width: 100%;
+}
+
+.toggleHide {
+    display: none;
+    opacity: 0;
+}
+
+.toggleShow {
+    display: block;
+    animation: expand-open 1s linear;
+}
+
+@keyframes expand-open {
+    0% {
+        height: 0px;
+        display:none;
+    }
+
+    50% {
+        height: 50px;
+    }
+
+    100% {
+        display:block;
+    }
+}
+ /* ----------------------------------- 
+ *   HEADERS
+ * -----------------------------------
+ */
+ 
+ .h1-default { 
+    @extend .default-panel;
+    margin: auto;
+    margin-bottom: 2%;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 2;
+    text-align: center;
+ }

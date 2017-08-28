@@ -1,25 +1,25 @@
-<div class="page">
+<section class="register-check-in-form">
+    <header class="register-header">
+        <h1>Register</h1>
+    </header>
     <form [formGroup]="registerForm" class="mars-register-form" novalidate (ngSubmit)="registerColonist()">
         <fieldset>
             <input type="text" placeholder="Name" required="" class="" formControlName="name">
             <input type="number" placeholder="Age" required="" class="" value="{{ data }}" formControlName="age">
-            <div class="custom-select">
-                <select required="" name="occupation" class="" formControlName="job_id">
-                    <option value="" class="placeholder">Select occupation</option>
-                    <option *ngFor="let job of jobs" [value]="job.id" class="">{{ job.name }}</option>
-                </select>
-            </div>
-            <div>
-                <button [disabled]="registerForm.status === 'INVALID'" type="submit" class="button">Check in</button>
-            </div>
+            <select required="" name="occupation" class="" formControlName="job_id">
+                <option value="" class="placeholder">Select occupation</option>
+                <option *ngFor="let job of jobs" [value]="job.id" class="">{{ job.name }}</option>
+            </select>
+            <button [disabled]="registerForm.status === 'INVALID'" [ngClass]="{ toggleHide: registerForm.status === 'INVALID', toggleShow: registerForm.status !== 'INVALID' }" type="submit" class="button">
+                <a class="check-in-btn" routerLink="/encounters">Check-In</a>
+            </button>
         </fieldset>
     </form>
     <pre>{{ registerForm.value | json }}</pre>
     <pre>STATUS: {{ registerForm.status | json }}</pre>
     <nav>
-        <a routerLink="/encounters">Encounters</a>
     </nav>
-</div>
+</section>
 
 <!-- <div class="page">
     <div class="mars-form-register">

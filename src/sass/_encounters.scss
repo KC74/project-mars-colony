@@ -1,2 +1,85 @@
-.container { height: 100%; width: 100%; }
-.main-body { width: 100%; height: 60vh; overflow: scroll; }
+/* ----------------------------------- 
+ *   ENCOUNTERS STYLES
+ * -----------------------------------
+ */
+
+.container { 
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%; 
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+header.encounters-title {
+    @extend .default-panel;
+    flex: 1;
+    margin-top: 2%;
+}
+
+
+.main-body { 
+    @extend .default-panel;
+    margin-top: 2%;
+    width: 100%; 
+    overflow: scroll; 
+    height: 60vh;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 1rem;
+
+        li {
+            margin-bottom: 2%;
+        }
+    }   
+}
+
+.main-footer {
+    @include mwidth-container(100%, true);
+    @extend .default-panel;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2%;
+
+    select, button {
+        margin: 1rem auto;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    button {
+        @include min-content-width($screen__size-mobile);
+        width: 25%;
+        height: 50px;
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+
+    .check-in-btn {
+        padding-top: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #004e5e;
+        opacity: 100%;
+        animation: check-in-pulse 5s linear infinite;
+        
+        @keyframes check-in-pulse {
+            0% {
+                opacity: 30%;
+            }
+            50% {
+                opacity: 100%;
+            }
+            100% {
+                opacity: 30%;
+            }
+        }
+    }
+}
