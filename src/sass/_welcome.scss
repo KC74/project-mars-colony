@@ -11,7 +11,7 @@ body {
     &:after {
         content: "";
         background: url('images/scanlines.png') repeat center;
-        opacity: 0.5;
+        opacity: 0.3;
         top: 0;
         left: 0;
         bottom: 0;
@@ -30,13 +30,18 @@ app-welcome {
     }
 
     h1 {
-        color: #fff;
         margin: auto;
-        margin-bottom: 0;
+        margin-bottom: 2%;
         font-weight: lighter;
         text-transform: uppercase;
         letter-spacing: 1.5px;
         line-height: 2;
+        width: 100%;
+        text-align: center;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        color: #004e5e;
+        background: rgba(156, 187, 203, 0.6);
     }
 
     a {
@@ -61,9 +66,14 @@ app-welcome {
         @keyframes rotate {
             0% {
                 transform: rotate(0deg);
+                stroke-dashoffset: 80%;
+            }
+            50% {
+                stroke-dashoffset: 10%;
             }
             100% {
                 transform: rotate(360deg);
+                stroke-dashoffset: 80%;
             }
         }
 
@@ -116,8 +126,8 @@ app-welcome {
         .inner-inner-circle {
             @extend .outer-circle;
             r: 50;
-            stroke: rgba(255, 255, 255, 0.50);
-            stroke-dasharray: 200;
+            stroke: rgba(41, 88, 85, 0.5);
+            stroke-dasharray: 400;
             stroke-dashoffset: 900; 
             stroke-width: $base__line-width * 1.5;
         }
