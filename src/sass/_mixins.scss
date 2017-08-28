@@ -1,7 +1,28 @@
+/* ---------------------   
+ * CONTENT SIZE
+ * ---------------------   
+**/
 @mixin min-content-width($width) {
             min-width: $width;
   }
 
+
+/* ---------------------   
+ * WELCOME PAGE 
+ * ---------------------   
+**/
+
+/* ---- LOGO ---- */
+@mixin logo__circle($cx, $cy, $radius) {
+    cx: $cx;
+    cy: $cy;
+    r: $radius;
+}
+
+/* ---------------------   
+ * CONTAINERS
+ * ---------------------   
+**/
 @mixin mwidth-container($min-width, $isFlex: $default__flex-toggle) {
 
     min-width: $min-width;

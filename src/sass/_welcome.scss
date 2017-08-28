@@ -5,7 +5,6 @@ body {
 
     background: 
         linear-gradient(180deg,rgba(1, 46, 167, 0.25) 0,rgba(0,0,0,.25)),
-        // url(https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-11.jpg) no-repeat top;
         url(http://media-channel.nationalgeographic.com/media/uploads/photos/content/video/2016/09/30/776629827588_Digimedia_Mars_Big%20Thinker_09_HTSOM_04_Building%20Shelter_SEQ_v9a_DELIVERY_TXTD.00_00_13_08.Still001.jpg) no-repeat top;
     background-size: cover, cover;
 
@@ -25,52 +24,125 @@ body {
 app-welcome {   
 
     .welcome-container {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // width: 500px;
         @include mwidth-container($screen__size-mobile, true);
+        flex-flow: column nowrap;
+        height: 100vh;
     }
 
     h1 {
         color: #fff;
-        margin: 0;
+        margin: auto;
+        margin-bottom: 0;
+        font-weight: lighter;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        line-height: 2;
     }
 
-    circle {
-        fill: rgba(255, 255, 255, 0.00);
-        stroke-width: $base__line-width;
-        transform-origin: 50% 50%;
-        animation: rotate 5s linear infinite;
-    
-        &.outer-circle {
-            stroke: rgba(33, 123, 183, 0.8);
-            stroke-dasharray: 100;
-            stroke-dashoffset: 1000;
-            }
-        &.outer-inner-circle {
-            stroke: rgba(255, 255, 255, 0.70);
-            stroke-dasharray: 200;
-            stroke-dashoffset: 1000;
-            }
-        &.inner-circle {
-            stroke: rgba(33, 123, 183, 0.6);
-            stroke-dasharray: 400;
-            stroke-dashoffset: 1000;
-            }
-        &.inner-inner-circle {
-            stroke: rgba(255, 255, 255, 0.50);
-            stroke-dasharray: 450;
-            stroke-dashoffset: 900; 
-            }
+    a {
+        margin: auto;
+        margin-top: 0;
     }
-      
-    @keyframes rotate {
-        0% {
-            transform: rotate(0deg);
+
+    .svg-enter-btn {
+        $square-size: $screen__size-mobile - 100;
+        $square-size-center: $square-size / 2;
+    
+        height: $square-size;
+        width: $square-size;
+    
+        circle {
+            fill: rgba(255, 255, 255, 0.00);
+            stroke-width: $base__line-width;
+            transform-origin: 50% 50%;
+            animation: rotate 5s linear infinite;
         }
-        100% {
-            transform: rotate(360deg);
+          
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        text {
+            font-size: 20px;
+            fill: rgb(0, 255, 241);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    
+        .outer-circle {
+            @include logo__circle(  
+                $square-size-center, 
+                $square-size-center,
+                125 );
+            stroke: rgba(66, 66, 66, 0.80);
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            stroke-width: $base__line-width * 5;
+        }
+
+        .outer-piece {
+            @extend .outer-circle;
+            stroke: rgba(0, 189, 255, 0.5);
+            stroke-dasharray: 100;
+            stroke-dashoffset: 200;
+            stroke-width: $base__line-width * 3.5;
+        }
+    
+        .outer-inner-circle {
+            @extend .outer-circle;
+            r: 100;
+            stroke: rgba(255, 255, 255, 0.70);
+            stroke-dasharray: 125;
+            stroke-dashoffset: 350;
+            stroke-width: $base__line-width * 2.5;
+        }
+    
+        .inner-circle {
+            @extend .outer-circle;
+            r: 75;
+            stroke: rgba(33, 123, 183, 0.6);
+            stroke-dasharray: 250;
+            stroke-dashoffset: 1000;
+            stroke-width: $base__line-width;
+        }
+    
+        .inner-inner-circle {
+            @extend .outer-circle;
+            r: 50;
+            stroke: rgba(255, 255, 255, 0.50);
+            stroke-dasharray: 200;
+            stroke-dashoffset: 900; 
+            stroke-width: $base__line-width * 1.5;
+        }
+
+        .innerCircle {
+            r: 25%;
+            cy: 50%;
+            cx: 50%;
+            fill: none;
+            stroke: rgb(0, 255, 241);
+            stroke-width: 1%;
+            animation: circle-pulse 1.5s linear infinite;
+        }
+        
+        @keyframes circle-pulse {
+            0% {
+                r: 5%;
+                stroke-width: 3%;
+                opacity: 1;
+            }
+            100% {
+                r: 25%;
+                stroke-width: 0%;
+                opacity: 0;
+            }
         }
     }
 }
